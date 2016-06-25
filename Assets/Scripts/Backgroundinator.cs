@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Collections.Generic;
 
 public class Backgroundinator : MonoBehaviour{
 	[SerializeField] Sprite backgroundSprite;
@@ -35,11 +37,33 @@ public class Backgroundinator : MonoBehaviour{
 	// Update is called once per frame
 	void Update () {
 
+
+
 		foreach (var summonedBackground in summonedBackgroundList) {
 			if (summonedBackground.transform.localPosition.x < -backgroundSprite.bounds.size.x )
 			{
-				summonedBackground.GetComponent<Moveable>().blinkToPos(spawnPointForNewBackground);
+				// Find rightmost background
+				Array.Sort(summonedBackgroundList, new CompareByXPosition());
+				var Rightmost = summonedBackgroundList[0];
+				summonedBackground.GetComponent<Moveable>().blinkToPos(
+					new Vector3 (
+						Rightmost.GetComponent<SpriteRenderer>().bounds.size.x + Rightmost.transform.localPosition.x
+						,0,0)
+				);
 			}
 		}
 	}
+}
+
+
+class CompareByXPosition : IComparer<GameObject>
+{
+	#region IComparer implementation
+	public int Compare (GameObject x, GameObject y)
+	{
+		
+		return Math.Sign(y.transform.localPosition.x - x.transform.localPosition.x);
+	}
+	#endregion
+						
 }
