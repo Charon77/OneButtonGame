@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class Backgroundinator : MonoBehaviour{
+public class BackgroundManager : MonoBehaviour{
 	[SerializeField] Sprite backgroundSprite;
 	[SerializeField] GameObject backgroundTemplate;
 	GameObject[] summonedBackgroundList = new GameObject[4];
