@@ -3,7 +3,8 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-
+	[SerializeField]
+	GameObject playerCharacter;
 	// Use this for initialization
 	void Start () {
 		// Set camera aspect ratio
@@ -18,7 +19,15 @@ public class GameManager : MonoBehaviour {
 	public void GoRight()
 	{		
 		foreach (var moveable in GameObject.FindObjectsOfType<Moveable>()) {
-			moveable.GoRight(10);
+			moveable.GoRight(4);
 		}
+
+		//playerCharacter.GetComponent<AnimStepper>().Step();
+		foreach (var animStepper in playerCharacter.GetComponentsInChildren<AnimStepper>()) {
+			animStepper.Step();
+		}
+		//playerCharacter.GetComponentInChildren<AnimStepper>().Step();
+
+
 	}
 }
