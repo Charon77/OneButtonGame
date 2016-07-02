@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 
 public class BackgroundManager : MonoBehaviour{
-	[SerializeField] Sprite backgroundSprite;
+	[SerializeField] Sprite[] backgroundSprite;
 	[SerializeField] GameObject backgroundTemplate;
 	GameObject[] summonedBackgroundList = new GameObject[4];
 	float xOffset = 0;
@@ -26,7 +26,8 @@ public class BackgroundManager : MonoBehaviour{
 			summonedBackground.transform.Translate(spawnPointForNewBackground);
 
 			//Change sprite
-			backgroundSpriteRenderer.sprite = backgroundSprite;
+			backgroundSpriteRenderer.sprite = backgroundSprite[UnityEngine.Random.Range(0,backgroundSprite.Length)];
+
 
 			// Add offset
 			xOffset += backgroundSpriteRenderer.bounds.size.x;
@@ -40,7 +41,7 @@ public class BackgroundManager : MonoBehaviour{
 
 
 		foreach (var summonedBackground in summonedBackgroundList) {
-			if (summonedBackground.transform.localPosition.x < -backgroundSprite.bounds.size.x )
+			if (summonedBackground.transform.localPosition.x < -backgroundSprite[UnityEngine.Random.Range(0,backgroundSprite.Length)].bounds.size.x )
 			{
 				// Find rightmost background
 				Array.Sort(summonedBackgroundList, new CompareByXPosition());
@@ -50,6 +51,8 @@ public class BackgroundManager : MonoBehaviour{
 						Rightmost.GetComponent<SpriteRenderer>().bounds.size.x + Rightmost.transform.localPosition.x
 						,0,0)
 				);
+				Rightmost.GetComponent<SpriteRenderer> ().sprite = backgroundSprite [UnityEngine.Random.Range (0, backgroundSprite.Length)];
+				//summonedBackground.GetComponent<SpriteRenderer>().sprite
 			}
 		}
 	}
