@@ -6,13 +6,13 @@ public class Moveable : MonoBehaviour {
 	Vector3 destPos;
 
 	float lastXChange = 0;
-
+	float speedStepMultiplier = 10.0f;
 	void Start() {
 		destPos = gameObject.transform.localPosition;
 	}
 
 	void Update() {
-		gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.localPosition, destPos, Time.deltaTime);
+		gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.localPosition, destPos, speedStepMultiplier * Time.deltaTime);
 	}
 
 	public void GoRight(float x)

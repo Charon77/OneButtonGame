@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 	public void GoRight()
 	{		
 		foreach (var moveable in GameObject.FindObjectsOfType<Moveable>()) {
-			moveable.GoRight(4);
+			moveable.GoRight(1);
 		}
 
 		//playerCharacter.GetComponent<AnimStepper>().Step();
