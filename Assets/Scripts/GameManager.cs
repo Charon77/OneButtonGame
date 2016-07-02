@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using HelperStuffs;
 public class GameManager : MonoBehaviour {
 
 	[SerializeField]
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 
 	public void GoRight()
 	{		
-		foreach (var moveable in GameObject.FindObjectsOfType<Moveable>()) {
+		foreach (var moveable in Helper.getMoveables()) {
 			moveable.GoRight(1);
 		}
 

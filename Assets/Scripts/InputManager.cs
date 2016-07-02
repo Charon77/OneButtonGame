@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using HelperStuffs;
 public class InputManager : MonoBehaviour {
 
 	// Use this for initialization
@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour {
 		/// TODO: Put outside Update?
 		if(Input.GetKeyUp(KeyCode.Space))
 		{
-			GameObject.FindObjectOfType<GameManager>().GoRight();
+			Helper.getGameManager().GoRight();
 		}
 	}
 }

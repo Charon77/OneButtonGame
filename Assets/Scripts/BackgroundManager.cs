@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
-
+using HelperStuffs;
 public class BackgroundManager : MonoBehaviour{
 	[SerializeField] Sprite[] backgroundSprite;
 	[SerializeField] GameObject backgroundTemplate;
@@ -51,7 +51,12 @@ public class BackgroundManager : MonoBehaviour{
 						Rightmost.GetComponent<SpriteRenderer>().bounds.size.x + Rightmost.transform.localPosition.x
 						,0,0)
 				);
+				var DecorFactory = Helper.getDecorFactory();
+				DecorFactory.ClearAll(Rightmost);
+				DecorFactory.PutPlant(Rightmost);
+
 				Rightmost.GetComponent<SpriteRenderer> ().sprite = backgroundSprite [UnityEngine.Random.Range (0, backgroundSprite.Length)];
+
 				//summonedBackground.GetComponent<SpriteRenderer>().sprite
 			}
 		}
