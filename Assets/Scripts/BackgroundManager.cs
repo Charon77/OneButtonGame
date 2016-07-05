@@ -55,6 +55,9 @@ public class BackgroundManager : MonoBehaviour{
 				DecorFactory.ClearAll(Rightmost);
 				DecorFactory.PutPlant(Rightmost);
 
+				var EnemyFactory = Helper.getEnemyFactory();
+				EnemyFactory.PutWalkingGuard(Rightmost);
+
 				Rightmost.GetComponent<SpriteRenderer> ().sprite = backgroundSprite [UnityEngine.Random.Range (0, backgroundSprite.Length)];
 
 				//summonedBackground.GetComponent<SpriteRenderer>().sprite

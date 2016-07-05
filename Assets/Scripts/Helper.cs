@@ -9,6 +9,11 @@ namespace HelperStuffs {
 			return GameObject.FindObjectOfType<DecorFactory>();
 		}
 
+		public static EnemyFactory getEnemyFactory()
+		{
+			return GameObject.FindObjectOfType<EnemyFactory>();
+		}
+
 		public static GameManager getGameManager()
 		{
 			return GameObject.FindObjectOfType<GameManager>();
