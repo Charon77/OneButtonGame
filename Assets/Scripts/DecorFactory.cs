@@ -5,8 +5,6 @@ public class DecorFactory : MonoBehaviour {
 
 	[SerializeField] GameObject Tree;
 
-	GameObject Background;
-
 	// Use this for initialization
 	void Start () {
 		
@@ -25,18 +23,23 @@ public class DecorFactory : MonoBehaviour {
 		}
 	}
 
-	public void PutPlant (GameObject background)
+	public void PutDecor (GameObject background, GameObject decor)
 	{
 		ClearAll(background);
-		GameObject tree = (GameObject) Instantiate (Tree);
-		tree.transform.SetParent(background.transform,false);
+		GameObject spawnedDecor = (GameObject) Instantiate (decor);
+		spawnedDecor.transform.SetParent(background.transform,false);
 
-		tree.transform.Translate (
+		spawnedDecor.transform.Translate (
 			new Vector3(
 				Random.Range(
 					-background.GetComponent<SpriteRenderer>().bounds.extents.x,
 					background.GetComponent<SpriteRenderer>().bounds.extents.x),0,0
 			)
 		);
+	}
+
+	public void PutPlant (GameObject background)
+	{
+		PutDecor(background, Tree);
 	}
 }
