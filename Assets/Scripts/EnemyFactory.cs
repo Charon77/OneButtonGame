@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EnemyFactory : MonoBehaviour {
 	[SerializeField] GameObject WalkingGuard;
+	[SerializeField] GameObject DoorGuard;
+	[SerializeField] GameObject StandingGuard;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +29,16 @@ public class EnemyFactory : MonoBehaviour {
 		PutGuard(background, WalkingGuard);
 	}
 
+	public void PutStandingGuard (GameObject background)
+	{
+		PutGuard(background, StandingGuard);
+	}
+
+	public void PutDoorGuard (GameObject background)
+	{
+		PutGuard(background, DoorGuard);
+	}
+
 	public void PutGuard (GameObject background, GameObject guard)
 	{
 		GameObject spawnedGuard = (GameObject) Instantiate (guard);
@@ -40,5 +52,31 @@ public class EnemyFactory : MonoBehaviour {
 						background.GetComponent<SpriteRenderer>().bounds.extents.x),0,0
 				)
 			);
+	}
+
+	public void PutRandomGuard (GameObject background)
+	{
+		ClearAll(background);
+
+		int randInt = Random.Range(0,3);
+
+		switch (randInt) {
+			case 0:
+				PutWalkingGuard(background);
+				return;
+				break;
+			case 1:
+				PutStandingGuard(background);
+				return;
+				break;
+			case 2:
+				PutDoorGuard(background);
+				return;
+				break;
+			default:
+				break;
+		}
+
+
 	}
 }
