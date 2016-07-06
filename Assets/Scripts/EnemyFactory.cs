@@ -63,15 +63,12 @@ public class EnemyFactory : MonoBehaviour {
 		switch (randInt) {
 			case 0:
 				PutWalkingGuard(background);
-				return;
 				break;
 			case 1:
 				PutStandingGuard(background);
-				return;
 				break;
 			case 2:
 				PutDoorGuard(background);
-				return;
 				break;
 			default:
 				break;
