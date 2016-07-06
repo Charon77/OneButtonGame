@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour {
 		}
 
 		//playerCharacter.GetComponent<AnimStepper>().Step();
-		foreach (var animStepper in playerCharacter.GetComponentsInChildren<AnimStepper>()) {
-			animStepper.Step();
-		}
+
+		playerCharacter.GetComponent<Player_Behavior>().Step();
+
 		//playerCharacter.GetComponentInChildren<AnimStepper>().Step();
 
 

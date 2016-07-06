@@ -3,7 +3,7 @@ using System.Collections;
 
 public class des_collider_check : MonoBehaviour {
 
-	public string nama_sprite;
+	[SerializeField] string nama_sprite;
 	// Use this for initialization
 	void Start () {
 	
