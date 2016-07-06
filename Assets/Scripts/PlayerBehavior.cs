@@ -48,14 +48,15 @@ public class PlayerBehavior : MonoBehaviour {
 		}
 	}
 
+	//tag Enemy_1 muncu karena kalau pke tag enemy menghancurkan smua decor kalau kena 
 	void OnTriggerEnter2D(Collider2D coll) {
-		if (coll.gameObject.tag == "Enemy") {
+		if (coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Enemy_1" ) {
 			Debug.Log ("GAME OVER ENTER");
 		}
 
 	}
 	void OnTriggerStay2D(Collider2D coll) {
-		if (coll.gameObject.tag == "Enemy") {
+		if (coll.gameObject.tag == "Enemy"|| coll.gameObject.tag == "Enemy_1") {
 			Debug.Log ("GAME OVER STAY");
 		}
 
