@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class moveable_enemy_1 : MonoBehaviour {
+public class MoveableEnemy1 : MonoBehaviour {
 
 	Vector3 destPos;
 

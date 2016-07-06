@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class des_collider_check : MonoBehaviour {
+public class DesColliderCheck : MonoBehaviour {
 
 	[SerializeField] string nama_sprite;
 	// Use this for initialization

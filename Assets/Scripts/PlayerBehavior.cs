@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player_Behavior : MonoBehaviour {
+public class PlayerBehavior : MonoBehaviour {
 
-	float timeToHide = 1.0f;
+	public float timeToHide = 1.0f;
 
 	float hideTimer;
 
