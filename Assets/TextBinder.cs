@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using HelperStuffs;
 
 public class TextBinder : MonoBehaviour {
+	int lastScore = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -12,6 +13,28 @@ public class TextBinder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.GetComponent<Text>().text = Helper.getGameManager().Score.ToString();
+		int score = Helper.getGameManager().Score;
+
+		if (lastScore <= score)
+		{
+			gameObject.GetComponent<Text>().text = lastScore.ToString();
+
+			// Hopefully not buggy
+			// A E S T H E T I C
+			if ((float)score - lastScore> 200)
+			{
+				lastScore += 100;
+			}
+			if ((float)score - lastScore> 20)
+			{
+				lastScore += 10;
+			}
+			else
+			{
+				lastScore++;
+			}
+		}
+
+
 	}
 }

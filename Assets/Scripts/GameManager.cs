@@ -53,4 +53,9 @@ public class GameManager : MonoBehaviour {
 	{
 		SCORE_MULTIPLIER = 1.0f ;
 	}
+
+	public void CustomerHit()
+	{
+		_score += (int)(SCORE_MULTIPLIER * SELL_SCORE);
+	}
 }

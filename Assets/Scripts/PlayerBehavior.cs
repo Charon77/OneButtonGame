@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using HelperStuffs;
 
 public class PlayerBehavior : MonoBehaviour {
 
@@ -55,6 +56,7 @@ public class PlayerBehavior : MonoBehaviour {
 		}
 		else if (coll.gameObject.tag == "Costumer" ) {
 			Debug.Log ("SCORE NAMBAH");
+			Helper.getGameManager().CustomerHit();
 		}
 
 	}
