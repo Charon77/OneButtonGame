@@ -5,6 +5,7 @@ public class EnemyFactory : MonoBehaviour {
 	[SerializeField] GameObject WalkingGuard;
 	[SerializeField] GameObject DoorGuard;
 	[SerializeField] GameObject StandingGuard;
+	[SerializeField] GameObject Costumer;
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +39,10 @@ public class EnemyFactory : MonoBehaviour {
 	{
 		PutGuard(background, DoorGuard);
 	}
-
+	public void PutDoorCostumer (GameObject background)
+	{
+		PutGuard(background, Costumer);
+	}
 	public void PutGuard (GameObject background, GameObject guard)
 	{
 		GameObject spawnedGuard = (GameObject) Instantiate (guard);
@@ -58,7 +62,7 @@ public class EnemyFactory : MonoBehaviour {
 	{
 		//ClearAll(background);
 
-		int randInt = Random.Range(0,3);
+		int randInt = Random.Range(0,4);
 
 		switch (randInt) {
 			case 0:
@@ -69,6 +73,9 @@ public class EnemyFactory : MonoBehaviour {
 				break;
 			case 2:
 				PutDoorGuard(background);
+				break;
+			case 3:
+				PutDoorCostumer(background);
 				break;
 			default:
 				break;
