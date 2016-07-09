@@ -32,6 +32,9 @@ public class BackgroundManager : MonoBehaviour{
 			// Add offset
 			xOffset += backgroundSpriteRenderer.bounds.size.x;
 			spawnPointForNewBackground = new Vector3(xOffset,0,0);
+
+			var DecorFactory = Helper.getDecorFactory();
+			DecorFactory.PutRandomDecor(summonedBackgroundList[i]);
 		}
 	}
 	

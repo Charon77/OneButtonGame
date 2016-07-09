@@ -6,7 +6,7 @@ public class DecorFactory : MonoBehaviour {
 	[SerializeField] GameObject Tree;
 	[SerializeField] GameObject Baa;
 	[SerializeField] GameObject Bulletinboard;
-	[SerializeField] GameObject Door;
+	//[SerializeField] GameObject Door;
 	[SerializeField] GameObject Exit;
 	[SerializeField] GameObject Toilet;
 	[SerializeField] GameObject Trash;
@@ -59,10 +59,10 @@ public class DecorFactory : MonoBehaviour {
 		PutDecor(background, Bulletinboard);
 	}
 
-	public void PutDoor (GameObject background)
-	{
-		PutDecor(background, Door);
-	}
+	//public void PutDoor (GameObject background)
+	//{
+	//	PutDecor(background, Door);
+	//}
 
 	public void PutExit (GameObject background)
 	{
@@ -93,7 +93,8 @@ public class DecorFactory : MonoBehaviour {
 			PutBulletinboard(background);
 			break;
 		case 2:
-			PutDoor(background);
+			PutTrash (background);
+			//PutDoor(background);
 			break;
 		case 3:
 			PutExit(background);
