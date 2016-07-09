@@ -53,7 +53,7 @@ public class BackgroundManager : MonoBehaviour{
 				);
 				var DecorFactory = Helper.getDecorFactory();
 				DecorFactory.ClearAll(Rightmost);
-				DecorFactory.PutPlant(Rightmost);
+				DecorFactory.PutRandomDecor(Rightmost);
 
 				var EnemyFactory = Helper.getEnemyFactory();
 				EnemyFactory.PutRandomGuard(Rightmost);
