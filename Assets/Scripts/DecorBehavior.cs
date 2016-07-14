@@ -20,9 +20,9 @@ public class DecorBehavior : MonoBehaviour {
 
 	}
 	void OnTriggerStay2D(Collider2D coll) {
-		if (coll.gameObject.tag == "Enemy") {
-			//Debug.Log ("Decor Kena ENEMY STAY");
-			}
+		if (coll.gameObject.tag == "Enemy_3" || coll.gameObject.tag == "Decor" || coll.gameObject.tag == "Costumer") {
+			Destroy (gameObject);
+		}
 
 	}
 }
