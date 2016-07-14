@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour {
 
 	public void GoRight()
 	{		
+		// Cancels if Game over
+		if (PlayerBehavior.Gameover)
+			return;
+		
 		foreach (var moveable in Helper.getMoveables()) {
 			moveable.GoRight(1);
 		}

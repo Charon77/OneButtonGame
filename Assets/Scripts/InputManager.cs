@@ -10,16 +10,15 @@ public class InputManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!PlayerBehavior.Gameover) {
-			/// TODO: Put outside Update?
-			if (Input.GetKeyUp (KeyCode.Space)) {
-				Helper.getGameManager ().GoRight ();
-			}
+		
+		/// TODO: Put outside Update?
+		if (Input.GetKeyUp (KeyCode.Space)) {
+			Helper.getGameManager ().GoRight ();
+		}
 
-			// Touch screen
-			if (Input.GetTouch (0).phase == TouchPhase.Began) {
-				Helper.getGameManager ().GoRight ();
-			}
+		// Touch screen
+		if (Input.GetTouch (0).phase == TouchPhase.Began) {
+			Helper.getGameManager ().GoRight ();
 		}
 	}
 }
