@@ -16,7 +16,11 @@ public class DecorFactory : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		if (Tree == null || Baa == null || Bulletinboard == null || Exit == null || Toilet == null || Trash == null)
+		{
+			Debug.LogWarning("Prefabs seems empty, or DecorFactory reinstantiated more than once. UNRESOLVED problem.");
+			Destroy(gameObject);
+		}
 	}
 	
 	// Update is called once per frame
