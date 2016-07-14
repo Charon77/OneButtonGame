@@ -27,8 +27,9 @@ public class PlayerBehavior : MonoBehaviour {
 		}
 		else
 		{
+			GetComponent<AudioSource> ().Pause ();
 			if (!Gameover) {
-				GetComponent<AudioSource> ().Pause ();
+				
 				Hide ();
 			}
 		}
