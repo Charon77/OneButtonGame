@@ -56,10 +56,7 @@ public class PlayerBehavior : MonoBehaviour {
 		if (coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Enemy_1" ) {
 			Debug.Log ("GAME OVER ENTER");
 		}
-		else if (coll.gameObject.tag == "Costumer" ) {
-			Debug.Log ("SCORE NAMBAH");
-			Helper.getGameManager().CustomerHit();
-		}
+
 
 	}
 	void OnTriggerStay2D(Collider2D coll) {
