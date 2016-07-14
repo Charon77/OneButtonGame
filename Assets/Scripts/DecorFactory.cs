@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using HelperStuffs;
+using System.Linq;
+
+
 public class DecorFactory : MonoBehaviour {
 
 	[SerializeField] GameObject Tree;
@@ -21,6 +24,7 @@ public class DecorFactory : MonoBehaviour {
 	
 	}
 
+	// Warning: Clears not just decors
 	public void ClearAll(GameObject background)
 	{
 		for (int i=0; i<background.transform.childCount; i++)
@@ -31,7 +35,6 @@ public class DecorFactory : MonoBehaviour {
 
 	public void PutDecor (GameObject background, GameObject decor)
 	{
-		ClearAll(background);
 		GameObject spawnedDecor = (GameObject) Instantiate (decor);
 		spawnedDecor.transform.SetParent(background.transform,false);
 
@@ -79,10 +82,15 @@ public class DecorFactory : MonoBehaviour {
 		PutDecor(background, Trash);
 	}
 
+	public void PutRandomDecors (GameObject background, int count)
+	{
+		foreach (var i in Enumerable.Range(0, count) ) {
+			PutRandomDecor(background);
+		}
+	}
+
 	public void PutRandomDecor (GameObject background)
 	{
-		//ClearAll(background);
-
 		int randInt = Random.Range(0,7);
 
 		switch (randInt) {

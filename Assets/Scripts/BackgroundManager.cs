@@ -6,6 +6,7 @@ using HelperStuffs;
 public class BackgroundManager : MonoBehaviour{
 	[SerializeField] Sprite[] backgroundSprite;
 	[SerializeField] GameObject backgroundTemplate;
+	[SerializeField] int DECOR_COUNT;
 	GameObject[] summonedBackgroundList = new GameObject[4];
 	float xOffset = 0;
 	Vector3 spawnPointForNewBackground = Vector3.zero;
@@ -34,7 +35,7 @@ public class BackgroundManager : MonoBehaviour{
 			spawnPointForNewBackground = new Vector3(xOffset,0,0);
 
 			var DecorFactory = Helper.getDecorFactory();
-			DecorFactory.PutRandomDecor(summonedBackgroundList[i]);
+			DecorFactory.PutRandomDecors(summonedBackgroundList[i], DECOR_COUNT);
 		}
 	}
 	
@@ -56,7 +57,7 @@ public class BackgroundManager : MonoBehaviour{
 				);
 				var DecorFactory = Helper.getDecorFactory();
 				DecorFactory.ClearAll(Rightmost);
-				DecorFactory.PutRandomDecor(Rightmost);
+				DecorFactory.PutRandomDecors(Rightmost, DECOR_COUNT);
 
 				var EnemyFactory = Helper.getEnemyFactory();
 				EnemyFactory.PutRandomGuard(Rightmost);

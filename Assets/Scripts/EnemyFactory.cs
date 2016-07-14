@@ -60,8 +60,6 @@ public class EnemyFactory : MonoBehaviour {
 
 	public void PutRandomGuard (GameObject background)
 	{
-		//ClearAll(background);
-
 		int randInt = Random.Range(0,4);
 
 		switch (randInt) {
