@@ -20,9 +20,11 @@ public class PlayerBehavior : MonoBehaviour {
 		if (hideTimer > 0)
 		{
 			hideTimer -= Time.deltaTime;
+			GetComponent<AudioSource> ().UnPause ();
 		}
 		else
 		{
+			GetComponent<AudioSource> ().Pause ();
 			Hide();
 		}
 	}
