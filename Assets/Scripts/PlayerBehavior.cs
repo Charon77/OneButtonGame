@@ -19,15 +19,13 @@ public class PlayerBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 		if (hideTimer > 0)
 		{
 			hideTimer -= Time.deltaTime;
-			GetComponent<AudioSource> ().UnPause ();
 		}
 		else
 		{
-			GetComponent<AudioSource> ().Pause ();
 			if (!Gameover) {
 				
 				Hide ();
@@ -51,7 +49,7 @@ public class PlayerBehavior : MonoBehaviour {
 
 	public void Step() {
 		hideTimer = timeToHide;
-
+		GetComponent<AudioSource>().Play();
 		foreach (var animStepper in gameObject.GetComponentsInChildren<AnimStepper>()) {
 			animStepper.Step();
 		}
