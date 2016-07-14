@@ -15,5 +15,11 @@ public class InputManager : MonoBehaviour {
 		{
 			Helper.getGameManager().GoRight();
 		}
+
+		// Touch screen
+		if(Input.GetTouch(0).phase == TouchPhase.Began)
+		{
+			Helper.getGameManager().GoRight();
+		}
 	}
 }
