@@ -10,15 +10,18 @@ public class InputManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		// Check Key Up if in PC
+		#if UNITY_EDITOR || UNITY_STANDALONE
 		/// TODO: Put outside Update?
 		if (Input.GetKeyUp (KeyCode.Space)) {
 			Helper.getGameManager ().GoRight ();
 		}
-
-		// Touch screen
+		#else
+		// Mobile devices: Use touch screen
 		if (Input.GetTouch (0).phase == TouchPhase.Began) {
 			Helper.getGameManager ().GoRight ();
 		}
+		#endif
 	}
 }
