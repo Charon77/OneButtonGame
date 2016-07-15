@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using HelperStuffs;
 
 public class MenuManager : MonoBehaviour {
 
@@ -30,6 +31,7 @@ public class MenuManager : MonoBehaviour {
 
 	public void PlayLevelButton()
 	{
+		Helper.KillAllGameManagers();
 		SceneManager.LoadScene("main");
 	}
 
@@ -39,6 +41,7 @@ public class MenuManager : MonoBehaviour {
 	}
 	public void MainMenu()
 	{
+		Helper.KillAllGameManagers();
 		SceneManager.LoadScene ("MainMenu");
 	}
 

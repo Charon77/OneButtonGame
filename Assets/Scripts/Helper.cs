@@ -23,6 +23,13 @@ namespace HelperStuffs {
 		{
 			return GameObject.FindObjectsOfType<Moveable>();
 		}
+		public static void KillAllGameManagers()
+		{
+			var gameManagers = GameObject.FindObjectsOfType<GameManager>();
+			foreach (var gameManager in gameManagers) {
+				gameManager.Kill();	
+			}
+		}
 	}
 
 }

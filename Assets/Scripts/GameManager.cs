@@ -27,9 +27,15 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// Persists on scene change
+		DontDestroyOnLoad(this); 
 		// Set camera aspect ratio
-		Speed=1f;
 		Camera.main.aspect = 16f/9f;
+
+		// Inits
+		Speed=1f;
+		_score = 0;
+
 	}
 	
 	// Update is called once per frame
@@ -74,5 +80,10 @@ public class GameManager : MonoBehaviour {
 	public void CustomerHit()
 	{
 		_score += (int)(SCORE_MULTIPLIER * SELL_SCORE);
+	}
+
+	public void Kill()
+	{
+		Destroy(gameObject);
 	}
 }
