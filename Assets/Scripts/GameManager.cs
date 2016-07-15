@@ -86,4 +86,31 @@ public class GameManager : MonoBehaviour {
 	{
 		Destroy(gameObject);
 	}
+
+	public void NotifyHighScore()
+	{
+		const string HIGH_SCORE = "HIGH_SCORE";
+		int lastHighScore;
+		// Checks current high score
+
+		// if doesn't exist or higher
+		if(!PlayerPrefs.HasKey(HIGH_SCORE) || Score > (lastHighScore = PlayerPrefs.GetInt(HIGH_SCORE)) )
+		{
+			Debug.Assert(lastHighScore>=0); // just to make sure
+
+			//No High score or higher, setting to my score
+			PlayerPrefs.SetInt(HIGH_SCORE, Score);
+			// (was lastHighScore)
+
+			///Do Victory Dance(?)
+			Debug.Log("New High Score: " + Score);
+
+			// Done here.
+			return;
+		}
+		// Normal stuffs
+
+		Debug.Log("I have seen better: " + lastHighScore);
+
+	}
 }
