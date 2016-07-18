@@ -21,6 +21,7 @@ public class CostumerBehavior : MonoBehaviour {
 		else if (coll.gameObject.tag == "Player" ) {
 			Helper.getGameManager().CustomerHit();
 			GetComponent<AudioSource> ().Play ();
+			GetComponentInChildren<AnimStepper> ().Step ();
 			GetComponent<BoxCollider2D> ().enabled = false;
 		}
 	}
