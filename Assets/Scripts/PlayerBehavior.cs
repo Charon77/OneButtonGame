@@ -36,6 +36,8 @@ public class PlayerBehavior : MonoBehaviour {
 			if (!Gameover) {
 				
 				Hide ();
+			} else {
+				GetComponent<AudioSource> ().Stop ();
 			}
 		}
 	}
@@ -43,7 +45,7 @@ public class PlayerBehavior : MonoBehaviour {
 	void Hide()
 	{
 		gameObject.GetComponent<SpriteRenderer>().sprite = hideSprite;
-
+		GetComponent<AudioSource> ().Stop ();
 		// Hide all children
 		for (int i=0; i<gameObject.transform.childCount; i++)
 		{
@@ -56,7 +58,8 @@ public class PlayerBehavior : MonoBehaviour {
 
 	public void Step() {
 		hideTimer = timeToHide;
-		GetComponent<AudioSource>().Play();
+		if (!GetComponent<AudioSource> ().isPlaying)
+			GetComponent<AudioSource> ().Play ();
 		foreach (var animStepper in gameObject.GetComponentsInChildren<AnimStepper>()) {
 			animStepper.Step();
 		}
