@@ -3,7 +3,6 @@ using System.Collections;
 using HelperStuffs;
 public class GameManager : MonoBehaviour {
 
-	[SerializeField] float Speed;
 
 	[SerializeField]
 	GameObject playerCharacter;
@@ -33,23 +32,12 @@ public class GameManager : MonoBehaviour {
 		Camera.main.aspect = 16f/9f;
 
 		// Inits
-		Speed=1f;
 		_score = 0;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//nanti pikirkan cara lebihbaik
-		if (_score > 2000) {
-			Speed = 1.4f;
-			if (_score > 5000) {
-				Speed = 1.8f;
-				if (_score > 10000) {
-					Speed = 2.2f;
-				}
-			}
-		}
 	
 	}
 
@@ -58,9 +46,15 @@ public class GameManager : MonoBehaviour {
 		// Cancels if Game over
 		if (PlayerBehavior.Gameover)
 			return;
-		
+
+		float speed = playerCharacter.GetComponent<PlayerBehavior> ().HideTimer;
+		speed = Mathf.Max (speed, 0.0f);
+		speed = speed * 3.0f / 0.3f;
+		speed = speed + 1;
+
+		// 0..4
 		foreach (var moveable in Helper.getMoveables()) {
-			moveable.GoRight(Speed);
+			moveable.GoRight(speed);
 		}
 
 		//playerCharacter.GetComponent<AnimStepper>().Step();
@@ -68,7 +62,7 @@ public class GameManager : MonoBehaviour {
 		playerCharacter.GetComponent<PlayerBehavior>().Step();
 
 		//playerCharacter.GetComponentInChildren<AnimStepper>().Step();
-		_score += (int)(SCORE_MULTIPLIER * MOVEMENT_SCORE*Speed);
+		_score += (int)(SCORE_MULTIPLIER * MOVEMENT_SCORE*speed);
 
 	}
 

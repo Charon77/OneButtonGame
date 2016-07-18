@@ -4,10 +4,17 @@ using HelperStuffs;
 
 public class PlayerBehavior : MonoBehaviour {
 
-	public float timeToHide = 1.0f;
+	[SerializeField] float timeToHide;
 	[SerializeField] GameObject LoseSound;
 	float hideTimer;
 	public static bool Gameover; //klo gameover smua berhenti, input dan enemy_1 kena akses ini
+
+	public float HideTimer
+	{
+		get{
+			return hideTimer;
+		}
+	}
 
 	[SerializeField] Sprite hideSprite;
 
