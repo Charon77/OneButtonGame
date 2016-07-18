@@ -30,6 +30,10 @@ namespace HelperStuffs {
 				gameManager.Kill();	
 			}
 		}
+		public static MenuManager getMenuManager()
+		{
+			return GameObject.FindObjectOfType<MenuManager> ();
+		}
 	}
 
 }
