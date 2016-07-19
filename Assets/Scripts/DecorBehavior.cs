@@ -13,9 +13,16 @@ public class DecorBehavior : MonoBehaviour {
 
 	}
 	void OnTriggerEnter2D(Collider2D coll) {
-		if (coll.gameObject.tag == "Enemy_3"||coll.gameObject.tag == "Decor" ||coll.gameObject.tag == "Costumer" ) {
-			Destroy (gameObject);
-			//Debug.Log ("Decor Kena ENEMY");
+		if (gameObject.tag == "Enemy") {
+			if (coll.gameObject.tag == "Enemy_3" || coll.gameObject.tag == "Costumer") {
+				Destroy (gameObject);
+				//Debug.Log ("Decor Kena ENEMY");
+			}
+		} else {
+			if (coll.gameObject.tag == "Enemy_3" || coll.gameObject.tag == "Decor" || coll.gameObject.tag == "Costumer") {
+				Destroy (gameObject);
+				//Debug.Log ("Decor Kena ENEMY");
+			}
 		}
 
 	}
