@@ -10,7 +10,7 @@ public class AnimateSelf : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		GetComponent<AnimStepper>().Step();
 	}
 	
 	// Update is called once per frame

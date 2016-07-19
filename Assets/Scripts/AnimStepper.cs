@@ -6,6 +6,8 @@ public class AnimStepper : MonoBehaviour {
 	Sprite[] sprites;
 	[SerializeField]
 	bool backAndForth = false;
+	[SerializeField]
+	bool randomOrder = false;
 
 	bool forward = true;
 	int current_sprite = 0;
@@ -20,7 +22,11 @@ public class AnimStepper : MonoBehaviour {
 	}
 
 	public void Step() {
-		if (!backAndForth)
+
+		if (randomOrder) {
+			current_sprite = Random.Range (0, sprites.Length);
+		}
+		else if (!backAndForth)
 		{
 			current_sprite = sprites.Length > current_sprite+1 ? current_sprite+1 : 0;
 		}

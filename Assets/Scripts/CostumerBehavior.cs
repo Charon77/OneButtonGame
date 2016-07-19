@@ -4,9 +4,14 @@ using HelperStuffs;
 
 public class CostumerBehavior : MonoBehaviour {
 
+
+	Animator anim;
+
 	// Use this for initialization
 	void Start () {
-	
+		
+		anim = this.GetComponent<Animator> ();
+
 	}
 	
 	// Update is called once per frame
@@ -20,6 +25,7 @@ public class CostumerBehavior : MonoBehaviour {
 		}
 		else if (coll.gameObject.tag == "Player" ) {
 			Helper.getGameManager().CustomerHit();
+			anim.SetBool ("Player", true);
 			GetComponent<AudioSource> ().Play ();
 			GetComponentInChildren<AnimStepper> ().Step ();
 			GetComponent<BoxCollider2D> ().enabled = false;
