@@ -18,22 +18,19 @@ public class InputManager : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.Space)) {
 			Helper.getGameManager ().GoRight ();
 		}
-		if(Input.GetKey(KeyCode.Escape))
-		{
+		if (Input.GetKeyDown (KeyCode.Escape)) {
 			SceneManager.LoadScene ("MainMenu");
 		}
+			
 		#else
 		// Mobile devices: Use touch screen
 		if (Input.GetTouch (0).phase == TouchPhase.Began) {
 			Helper.getGameManager ().GoRight ();
 		}
-		if(Input.GetKey(KeyCode.Escape))
-		{
+		if (Input.GetKeyDown (KeyCode.Escape)) {
 		SceneManager.LoadScene ("MainMenu");
 		}
-
 		#endif
-
 
 	}
 }
